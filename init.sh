@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Instalace závislostí (pokud nejsou nainstalovány)
-sudo pacman -Syu --noconfirm zsh neovim git tmux cargo composer python php nodejs jre-openjdk jdk-openjdk julia pip ruby python-pip luarocks xclip cpanminus
+sudo pacman -Syu --noconfirm zsh neovim git tmux cargo composer python php nodejs jre-openjdk jdk-openjdk julia ruby python-pip luarocks xclip cpanminus 
 
 # downloading of yay
 git clone https://aur.archlinux.org/yay.git
@@ -18,13 +18,17 @@ export PATH=~/.cargo/bin:$PATH
 sudo npm install -g neovim
 cpanm -n Neovim::Ext
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-cp -r ./zsh ~/
+yay -S --noconfirm zsh-theme-powerlevel10k-git
+echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+
+cp -r ./zsh/.p10k.zsh ~/
+cp -r ./zsh/.zshrc ~/
 mkdir ~/.config/nvim
-cp -r ./nvim ~/.config/nvim/
+cp -r ./nvim/* ~/.config/nvim/
 mkdir ~/.config/tmux
-cp -r ./tmux ~/.config/tmux/
+cp -r ./tmux/* ~/.config/tmux/
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions

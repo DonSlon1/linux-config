@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Instalace závislostí (pokud nejsou nainstalovány)
-sudo pacman -Syu --noconfirm zsh neovim git tmux cargo composer python php nodejs jre-openjdk jdk-openjdk julia ruby python-pip luarocks xclip cpanminus 
+sudo pacman -Syu --noconfirm zsh neovim git tmux cargo composer python php nodejs jre-openjdk jdk-openjdk julia ruby python-pip luarocks xclip cpanminus cmake hidapi 
 
 # downloading of yay
 git clone https://aur.archlinux.org/yay.git
@@ -22,6 +22,14 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 yay -S --noconfirm zsh-theme-powerlevel10k-git
 echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+
+# Setup of headphone contreler
+git clone https://github.com/Sapd/HeadsetControl && cd HeadsetControl
+mkdir build && cd build
+cmake ..
+make intall
+sudo udevadm control --reload-rules && sudo udevadm trigger
+
 
 cp -r ./zsh/.p10k.zsh ~/
 cp -r ./zsh/.zshrc ~/

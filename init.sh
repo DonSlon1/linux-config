@@ -37,7 +37,10 @@ mkdir ~/.config/nvim
 cp -r ./nvim/* ~/.config/nvim/
 mkdir ~/.config/tmux
 cp -r ./tmux/* ~/.config/tmux/
-
+mkdir ~/.scripts
+cp -r ./scripts/* ~/.scripts/
+mkdir ~/.config/autostart
+cp -r ./autostart-config/* ~/.config/autostart/
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 

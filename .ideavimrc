@@ -30,6 +30,7 @@ plug 'machakann/vim-highlightedyank'
 plug 'tpope/vim-commentary'
 " neard Tree
 Plug 'preservim/nerdtree'
+set clipboard+=unnamedplus
 set NERDTree
 map <c-t> :NERDTree<CR>
 
